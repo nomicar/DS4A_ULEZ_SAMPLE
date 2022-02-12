@@ -89,9 +89,9 @@ def import_data(code, folder_path):
 if __name__ == '__main__':
     # Enter folder name of main data files here.
     # If files are in the root directory of the repo, leave it an empty string
-    file_path = "../cleaned_data"
+    file_path = "./cleaned_data"
 
-    pollutant_code = "PM10"  # options: "NO2", "PM2_5", "PM10", "traffic"
+    pollutant_code = "NO2"  # options: "NO2", "PM2_5", "PM10", "traffic"
 
     all_sites_daily, clean_monthly, clean_pre_averages, clean_post_averages, deltas = import_data(pollutant_code, file_path)
 
