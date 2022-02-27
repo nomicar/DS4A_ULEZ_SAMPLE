@@ -5,8 +5,9 @@ def sufficient_data_test(df):
     import pandas as pd
     import numpy as np
 
+    min_sites = 5
     site_nums = df.groupby('location').agg("nunique")["site_indicator"]
-    enough_sites = ~(site_nums[site_nums < 5].any())
+    enough_sites = ~(site_nums[site_nums < min_sites].any())
 
     if enough_sites:    
         print ("There are enough sites in each location to run an analysis on this pollutant")
@@ -16,7 +17,7 @@ def sufficient_data_test(df):
     return enough_sites
 
 if __name__ == '__main__':
-    # Run on all pollutants ()
+    # Run on all pollutants
     from transform_data import *
     file_path = "./cleaned_data"
     for pol_code in ["NO2", "PM2_5", "PM10"]:
